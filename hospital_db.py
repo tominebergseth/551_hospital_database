@@ -1334,7 +1334,7 @@ def main():
         hash_val = id_var
 
     # if hash_value found, call hash functon and create a singular session to store data in the correct database
-    if hash_val and (operation.startswith('add')  or
+    if hash_val and (operation.startswith('add') or
                      operation == 'modify_department' or operation == 'delete_department'):
         # call hash function to create the designated engine
         db_num = hash_department(hash_val)
