@@ -26,8 +26,8 @@ password = None
 
 # globally defined engine url dict
 # comment out if using login function
-engine_urls = {0: 'mysql+mysqlconnector://root:@localhost/database1',
-               1: 'mysql+mysqlconnector://root:@localhost/database2'}
+engine_urls = {0: 'mysql+mysqlconnector://root:GeoErSot5!@localhost/database1',
+               1: 'mysql+mysqlconnector://root:GeoErSot5!@localhost/database2'}
 
 
 def login():
@@ -1265,7 +1265,6 @@ def main():
     # print(len(sys.argv))
 
     operation = sys.argv[1].lower()  # extracting the provided operation
-    # print(operation)
 
     # initializing variables
     json_dict = {}
@@ -1297,6 +1296,7 @@ def main():
                 raise Exception("Error encoding input:", e)
     elif len(sys.argv) == 4:
         if operation == "modify_department":  # applies to modify department
+            # print(operation)
             id_num = sys.argv[2]
             json_str = sys.argv[3]
             try:
@@ -1325,19 +1325,21 @@ def main():
         for key, value in json_dict.items():
             if key == 'DepartmentID':
                 hash_val = value
+                # print(hash_val)
                 dept_id_found = True
                 break  # exit loop since DepartmentID is found
 
-    if not hash_val:  # if no hash val but the id var is the department id set hash val to id_var
-        if operation == "modify_department" or operation == "delete_department":
-            hash_val = id_var
+    # if not hash_val:  # if no hash val but the id var is the department id set hash val to id_var
+    if operation == "modify_department" or operation == "delete_department":
+        hash_val = id_var
 
     # if hash_value found, call hash functon and create a singular session to store data in the correct database
-    if hash_val and (operation.startswith('add') or operation.startswith('view') or
+    if hash_val and (operation.startswith('add')  or
                      operation == 'modify_department' or operation == 'delete_department'):
         # call hash function to create the designated engine
         db_num = hash_department(hash_val)
         engine = create_engine(engine_urls[db_num])
+        # print(engine)
 
         # create session class
         Session = sessionmaker(bind=engine)
@@ -1507,7 +1509,7 @@ def main():
         if Practitioner.delete_practitioner(session1, session2, json_dict):
             print("Success! The practitioner data was deleted.")
         else:
-            print("An error occurred while deleting the practitioner data.Please make sure to"
+            print("An error occurred while deleting the practitioner data. Please make sure to"
                   " specify the correct attribute names and values.")
     elif operation == "get_practitioner":
         if json_dict:
@@ -1595,7 +1597,7 @@ def main():
                     .first()
 
             first_name, last_name = patient_name
-            print(f"Associated Patients for Practitioner {last_name}, {first_name}:")
+            print(f"Associated Practitioners for Patient {last_name}, {first_name}:")
             for patient_of_instance, practitioner_list in practitioners:
                 for practitioner in practitioner_list:
                     if isinstance(practitioner, dict):  # If it's a dictionary
