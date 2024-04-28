@@ -26,8 +26,8 @@ password = None
 
 # globally defined engine url dict
 # comment out if using login function
-engine_urls = {0: 'mysql+mysqlconnector://root:GeoErSot5!@localhost/database1',
-               1: 'mysql+mysqlconnector://root:GeoErSot5!@localhost/database2'}
+engine_urls = {0: 'mysql+mysqlconnector://root:@localhost/database1',
+               1: 'mysql+mysqlconnector://root:@localhost/database2'}
 
 
 def login():
