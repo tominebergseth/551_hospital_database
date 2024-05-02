@@ -23,7 +23,8 @@ and Omar Alkhadra made the web based application.
 
 ## Instructions on how to call each function from the command line:
 - In the command line, navigate to the folder where you have downloaded this directory: cd path/to/folder
-- Note: the following examples use backslashes in the JSON objects 
+- Note: The following examples use backslashes in the JSON objects.
+- Note: There is a supplementary SampleData.txt file which contains entry commands for departments, practitioners, receptionists, and patients.  
 
 ## Adding data:
 - General format: python hotpital_db.py add_operation json_object_with_data_to add
@@ -94,4 +95,11 @@ and Omar Alkhadra made the web based application.
     - With optional list of attributes to return: python hospital_db.py get_patients_of 111111 "[FirstName, LastName]"
   - get_practitioners_for: python hospital_db.py get_practitioners_for 1000
     - With optional list of attributes to return: python hospital_db.py get_practitioners_for 1000 "[FirstName, LastName]"
+
+## Instructions on Accessing UI:
+
+- Update user UI access user credentials under "# User credentials", at the top of the UI.py file.
+- Open a streamlit terminal
+  - Navigate to the folder containing both python scripts
+    - Enter "streamlit run UI.py"
 
