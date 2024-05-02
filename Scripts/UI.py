@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import bcrypt
 
-from hospital_db import Department, Appointment, Reception, Practitioner, Patient, PatientOf, Base, hash_department, engine_urls  # Import your Appointment class and Base from your module
+from Scripts.hospital_db import Department, Appointment, Reception, Practitioner, Patient, PatientOf, hash_department, engine_urls  # Import your Appointment class and Base from your module
 
 # User credentials
 users = {

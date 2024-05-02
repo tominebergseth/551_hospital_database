@@ -7,24 +7,45 @@ Distributed relational database system designed for a hospital to manage its app
 Tomine Bergseth has written the code in hospital_db.py for the database logic and command line
 and Omar Alkhadra made the web based application.
 
+## Directory and file description: 
+- .steamlit/config.toml: This file includes the configuration of the web based application UI with frontend
+  features such as font and color.
+- Sample Data/Sample Data.txt: this folder contains a txt file with sample data that can be added through
+  the command line. The formatting is currently for Mac and would need to be modified if adding from Windows.
+  Please see instructions on testing the Web Based Application at towards the bottom the README for how to use
+  the Sample Data file.
+- Scripts folder: contains two python files  described below
+- Scripts/hospital_db.py: This file contains all database and command line UI code. 
+- Scripts/UI.py: This file contains all code for the web based application.
+- README.md: This file contains file descriptions and instructions for running the code.
+- requirements.txt: This file contains packages needed to run this project.
+
 ## Requirements for running this project:
 - To install the required packages run the following from the command line:
   - pip install -r requirements.txt
-- In order to run this project, you need to have MySQL installed and have a MySQL username and password.
-- Prior to running, please run the following code in MySQL to create the databases: 
+- In order to run this project, you need to have MySQL installed locally and have a MySQL username and password.
+  - If you need to install MySQL, you can visit the following link and follow installation instructions:
+    https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/
+- Prior to running, log in to MySQL and run the following code in MySQL to create the databases: 
   - CREATE DATABASE database1;
   - CREATE DATABASE database2;
-- At the top of the code, there is an engine url dictionary. After creating the databases within MySQl,
-  please updat ethe url string for each database with your password and username in the following format:
+- At the top of the code in hospital_db.py, there is an engine url dictionary in lines 29-30. 
+  After creating the databases within MySQl, please update the url string for each database 
+  with your password and username in the following format:
   - 'mysql+mysqlconnector://USERNAME:PASSWORD@localhost/database1'
   - Fill in the username and password as indicated above for each database url.
   - Alternatively, uncomment the login call at the top of main to login via the command line each time
-  - you run the script.
+    you run the script.
 
 ## Instructions on how to call each function from the command line:
 - In the command line, navigate to the folder where you have downloaded this directory: cd path/to/folder
 - Note: The following examples use backslashes in the JSON objects.
-- Note: There is a supplementary SampleData.txt file which contains entry commands for departments, practitioners, receptionists, and patients.  
+- Note: There is a supplementary SampleData.txt file which contains entry commands for departments, practitioners, receptionists, and patients. 
+  As mentioned under the file structure section, the JSON's are currently formatted for MAC and would need to be
+  reformatted if adding from Windows. To test the command line, you don't to use this file as there are examples on how 
+  to test each function in the sections below; however, if you wish test with adding more data outside the provided examples
+  feel free to add the data from the SampleData.txt file. That being said, the purpose of the file is to test the Web 
+  Based Application.
 
 ## Adding data:
 - General format: python hotpital_db.py add_operation json_object_with_data_to add
@@ -99,7 +120,17 @@ and Omar Alkhadra made the web based application.
 ## Instructions on Accessing UI:
 
 - Update user UI access user credentials under "# User credentials", at the top of the UI.py file.
-- Open a streamlit terminal
+- Open a streamlit terminal:
   - Navigate to the folder containing both python scripts
     - Enter "streamlit run UI.py"
+
+I would add: 
+- instructions on adding data from your file from teh command line prior to testing - assuming it depends on this
+  since you can't add data for all tables in yours so should be clearer
+- make it clearer how to start the terminal and open the application - ie is it from the command line
+  what's the code etc
+- brief description on how to navigate between tabs and use everything within the application
+  - ie how to filter by something when retrieving and so on, what required when adding
+- 
+
 
