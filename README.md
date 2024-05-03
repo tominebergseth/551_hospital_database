@@ -44,7 +44,7 @@ and Omar Alkhadra made the web based application.
   cd path_to_folder/551_Hospital_Database/Scripts
 - Note: The following examples use backslashes in the JSON objects as formatted for Windows. Reformat as needed for Mac.
 - Note: There is a supplementary SampleData.txt file which contains entry commands for departments, practitioners, receptionists, and patients. 
-  As mentioned under the file structure section, the JSON's are currently formatted for MAC and would need to be
+  As mentioned under the file structure section, the JSONs are currently formatted for MAC and would need to be
   reformatted if adding from Windows. To test the command line, you don't to use this file as there are examples on how 
   to test each function in the sections below; however, if you wish test with adding more data outside the provided examples
   feel free to add the data from the SampleData.txt file. That being said, the purpose of the file is to test the Web 
