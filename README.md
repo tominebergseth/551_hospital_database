@@ -5,7 +5,7 @@
 ## Project Description:
 Distributed relational database system designed for a hospital to manage its appointments' data.
 Tomine Bergseth has written the code in hospital_db.py for the database logic and command line
-and Omar Alkhadra made the web based application.
+and Omar Alkhadra made the web-based application.
 
 ## Directory and file description: 
 - Scripts folder: contains all of our scripts described below
@@ -43,12 +43,9 @@ and Omar Alkhadra made the web based application.
 - In the command line, navigate to the folder where you have downloaded this directory, then the Scripts folder:
   cd path_to_folder/551_Hospital_Database/Scripts
 - Note: The following examples use backslashes in the JSON objects as formatted for Windows. Reformat as needed for Mac.
-- Note: There is a supplementary SampleData.txt file that contains entry commands for departments, practitioners, receptionists, and patients. 
+- Note: There is a supplementary SampleData.txt file that contains entry commands for departments, practitioners, receptionists, patients, and appointments. 
   As mentioned under the file structure section, the JSONs are currently formatted for MAC and would need to be
-  reformatted if added from Windows. To test the command line, you don't have to use this file as there are examples on how 
-  to test each function in the sections below; however, if you wish to test by adding more data outside the provided examples
-  feel free to add the data from the SampleData.txt file. That being said, the purpose of the file is to test the Web 
-  Based Application.
+  reformatted if added from Windows. This file is supplemental and contains many data points for thorough testing, it simply contains multiple samples of the functions detailed below.
 
 ## Adding data:
 - General format: python hotpital_db.py add_operation json_object_with_data_to add
@@ -72,7 +69,7 @@ and Omar Alkhadra made the web based application.
 - Appointments example: python hospital_db.py modify_appointment "{\"AppointmentTime\": \"10:00\"}" "{\"AppointmentTime\": \"10:30\"}"
 
 ## Deleting data:
-- Note: if you are testing along with these examples, please test delete after retrieve in order to have data to retrieve.
+- Note: if you are testing along with these examples, please test delete after retrieve to have data to retrieve.
 - Note, the order in which you delete it is important due to foreign keys defined with cascade on update and delete with this small of a dataset. 
   Departments should be deleted last.
 - General format: python hospital_db.py delete_operation json_object_with_filter_requirements_for_rows_to_delete
@@ -112,10 +109,11 @@ and Omar Alkhadra made the web based application.
 
 ## Instructions on Accessing UI:
 - UI Access is contingent on building the databases using the above command line methods.
+    - For testing of UI, please ensure databases are setup, and sample data is entered through the command line. * NOTE: You can input your own data or simply use the examples in SampleData.txt 
 - Update user UI access user credentials under "# User credentials", at the top of the UI.py file.
-- Ensure that streamlit is available in your python terminal:
-      - pip install streamlit
+- Ensure that streamlit is installed in your python terminal
 - Navigate to the folder containing both python scripts
+    - cd /Path/to/folder
     - streamlit run UI.py
 
 ## UI Usability:
@@ -123,11 +121,11 @@ and Omar Alkhadra made the web based application.
 - Navigate between 6 tabs: Appointments, Patients, Patient Of, Practitioners, Departments
 
 - Get:
-    - For the latter 3 tabs, and the information subtab for the first 2, input desired filtering information. If no arguments are inputted, all data points will be returned.
+    - For information retrieval, navigate to one of the latter 3 tabs, or the *_____* information subtab for the first 2, and input the desired filtering information. If no arguments are inputted, all data points will be returned.
 - Add: 
     - For adding patients or appointments please fill out all criteria.
 - Modify:
-    - For modification of patients or appointments please follow the prompt on where to fill search criteria, then follow the next prompt for modifying criteria.
+    - For modification of patients or appointments please follow the initial prompt on where to fill search criteria, then scroll down to the next prompt for criteria you wish to modify.
 - Delete:
     - For deleting appointments, please input the appointment ID.
  
