@@ -39,7 +39,7 @@ and Omar Alkhadra made the web-based application.
   - Alternatively, uncomment the login call at the top of main to login via the command line each time
     you run the script.
 
-## Instructions on how to call each function from the command line:
+## Instructions on how to call each function from the command line UI:
 - In the command line, navigate to the folder where you have downloaded this directory, then the Scripts folder:
   cd path_to_folder/551_Hospital_Database/Scripts
 - Note: The following examples use backslashes in the JSON objects as formatted for Windows. Reformat as needed for Mac.
@@ -107,7 +107,7 @@ and Omar Alkhadra made the web-based application.
   - get_practitioners_for: python hospital_db.py get_practitioners_for 1000
     - With optional list of attributes to return: python hospital_db.py get_practitioners_for 1000 "[FirstName, LastName]"
 
-## Instructions on Accessing UI:
+## Instructions on Accessing Web Based Application UI:
 - UI Access is contingent on building the databases using the above command line methods.
     - For testing of UI, please ensure databases are setup, and sample data is entered through the command line. * NOTE: You can input your own data or simply use the examples in SampleData.txt 
 - Update user UI access user credentials under "# User credentials", at the top of the UI.py file.
