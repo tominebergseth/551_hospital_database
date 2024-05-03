@@ -21,8 +21,10 @@ and Omar Alkhadra made the web based application.
 - requirements.txt: This file contains packages needed to run this project.
 
 ## Requirements for running this project:
-- To install the required packages run the following from the command line:
-  - pip install -r requirements.txt
+- To install the required packages, navigate to the directory where you have
+  installed this project: cd path_to_folder/551_Hospital_Database
+  - Run the following from the command line:
+    - pip install -r requirements.txt
 - In order to run this project, you need to have MySQL installed locally and have a MySQL username and password.
   - If you need to install MySQL, you can visit the following link and follow installation instructions:
     https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/
@@ -38,8 +40,9 @@ and Omar Alkhadra made the web based application.
     you run the script.
 
 ## Instructions on how to call each function from the command line:
-- In the command line, navigate to the folder where you have downloaded this directory: cd path/to/folder
-- Note: The following examples use backslashes in the JSON objects.
+- In the command line, navigate to the folder where you have downloaded this directory, then the Scripts folder:
+  cd path_to_folder/551_Hospital_Database/Scripts
+- Note: The following examples use backslashes in the JSON objects as formatted for Windows. Reformat as needed for Mac.
 - Note: There is a supplementary SampleData.txt file which contains entry commands for departments, practitioners, receptionists, and patients. 
   As mentioned under the file structure section, the JSON's are currently formatted for MAC and would need to be
   reformatted if adding from Windows. To test the command line, you don't to use this file as there are examples on how 
@@ -49,46 +52,37 @@ and Omar Alkhadra made the web based application.
 
 ## Adding data:
 - General format: python hotpital_db.py add_operation json_object_with_data_to add
-- Departments example: python hospital_db.py add_department 
-  "{\"DepartmentID\": 1, \"DepartmentName\": \"Cardiology\", \"TotalRooms\": 100}"
-- Receptionists example: python hospital_db.py add_receptionist 
-  "{\"EmployeeID\": 211111, \"LastName\": \"Smith\", \"FirstName\": \"John\", \"DepartmentID\": 1}"
+- Departments example: python hospital_db.py add_department "{\"DepartmentID\": 1, \"DepartmentName\": \"Cardiology\", \"TotalRooms\": 100}"
+- Receptionists example: python hospital_db.py add_receptionist "{\"EmployeeID\": 211111, \"LastName\": \"Smith\", \"FirstName\": \"John\", \"DepartmentID\": 1}"
   - Note: EmployeeID must be 6 digits
-- Practitioners example: python hospital_db.py add_practitioner 
-  "{\"EmployeeID\": 111111, \"LastName\": \"Jones\", \"FirstName\": \"Amanda\",
-  \"LicenseNumber\": 4567,  \"Title\": \"Doctor\", \"DepartmentID\": 1, \"Specialty\": \"General heart disease\"}"
+- Practitioners example: python hospital_db.py add_practitioner "{\"EmployeeID\": 111111, \"LastName\": \"Jones\", \"FirstName\": \"Amanda\", \"LicenseNumber\": 4567,  \"Title\": \"Doctor\", \"DepartmentID\": 1, \"Specialty\": \"General heart disease\"}"
   - Note: EmployeeID must be 6 digits
-- Patients example: python hospital_db.py add_patient 
-  "{\"PatientID\": 1000, \"LastName\": \"Brown\", \"FirstName\": \"Ollie\",  
-  \"DOB\": \"1991-10-10\",  \"Gender\": \"Female\",  \"Insurance\": \"Aetna\", \"PastProcedures\":
-  \"MR Scan\", \"Notes\":  \"Lung/breathing problems\",  \"DepartmentID\": 1}"
+- Patients example: python hospital_db.py add_patient "{\"PatientID\": 1000, \"LastName\": \"Brown\", \"FirstName\": \"Ollie\", \"DOB\": \"1991-10-10\",  \"Gender\": \"Female\",  \"Insurance\": \"Aetna\", \"PastProcedures\":\"MR Scan\", \"Notes\":  \"Lung/breathing problems\",  \"DepartmentID\": 1}"
   - Note: PatientID must be 4 digits
-- Appointments example: python hospital_db.py add_appointment "{\"ReceptionistID\": 211111,
- \"PatientID\": 1000, \"PractitionerID\": 111111, \"DepartmentID\": 1, \"AppointmentDate\": 
- \"2024-03-19\", \"AppointmentTime\": \"10:00\", \"Notes\": \"Follow-up appointment\"}
+- Appointments example: python hospital_db.py add_appointment "{\"ReceptionistID\": 211111, \"PatientID\": 1000, \"PractitionerID\": 111111, \"DepartmentID\": 1, \"AppointmentDate\": \"2024-03-19\", \"AppointmentTime\": \"10:00\", \"Notes\": \"Follow-up appointment\"}
 
 ## Modifying data:
 - General format:  python hospital_db.py modify_operation json_object_with_filter_requirements_for_rows_to_update 
   json_object_with_new_values_to_insert
   - Exception for departments: python hospital_db.py modify_department dept_id json_object_with_new_values
 - Departments example: python hospital_db.py modify_department 1 "{\"DepartmentName\": \"Emergency\"}"
-- Receptionists example: python hospital_db.py modify_receptionist "{\"EmployeeID\": 211111}" "{\"DepartmentID\": 3}"
-- Practitioners example: python hospital_db.py modify_practitioner "{\"Title\": \"Doctor\"}" 
-  "{\"Title\": \" Medical Doctor\"}"  
+- Receptionists example: python hospital_db.py modify_receptionist "{\"EmployeeID\": 211111}" "{\"LastName\": \"Miller\"}"
+- Practitioners example: python hospital_db.py modify_practitioner "{\"Title\": \"Doctor\"}" "{\"Title\": \"Medical Doctor\"}"  
 - Patients example: python hospital_db.py modify_patient "{\"PatientID\": 1000}"  "{\"Insurance\": \"Kasier\"}" 
-- Appointments example: python hospital_db.py modify_appointment "{\"AppointmentTime\": \"10:00\"}"
-  "{\"AppointmentTime\": \"10:30\"}"
+- Appointments example: python hospital_db.py modify_appointment "{\"AppointmentTime\": \"10:00\"}" "{\"AppointmentTime\": \"10:30\"}"
 
 ## Deleting data:
 - Note: if you are testing along with these examples, please test delete after retrieve in order to have data to retrieve.
+- Note, the order you delete it is important due to foreign keys defined with cascade on update and delete with this small of a dataset. 
+  Departments should be deleted last.
 - General format: python hospital_db.py delete_operation json_object_with_filter_requirements_for_rows_to_delete
   - Exception for departments: python hospital_db.py delete_department dept_id
-- Departments example: python hospital_db.py delete_department 1
-- Receptionists example: python hospital_db.py delete_receptionist  "{\"EmployeeID\": 211111}"
-- Practitioner example: python hospital_db.py delete_practitioner "{\"LastName\": \"Jones\", \"FirstName\": \"Amanda\", 
-  \"LicenseNumber\": 4567}"
+- Appointments example: python hospital_db.py delete_appointment  "{\"AppointmentTime\": \"10:30\"}"
 - Patient example: python hospital_db.py delete_patient "{\"PatientID\": 1000}"
-- Appointments example: python hospital_db.py delete_appointment  "{\"AppointmentID\": 1}"
+- Receptionists example: python hospital_db.py delete_receptionist  "{\"EmployeeID\": 211111}"
+- Practitioner example: python hospital_db.py delete_practitioner "{\"LastName\": \"Jones\", \"FirstName\": \"Amanda\", \"LicenseNumber\": 4567}"
+- Departments example: python hospital_db.py delete_department 1
+
 
 ## Retrieving data:
 - General format: python hospital_db.py get_operation json_object_with_filter_requirements_for_rows_to_retrieve
