@@ -8,13 +8,13 @@ Tomine Bergseth has written the code in hospital_db.py for the database logic an
 and Omar Alkhadra made the web based application.
 
 ## Directory and file description: 
-- .steamlit/config.toml: this folder includes the configuration file for the web based application UI with
+- Scripts folder: contains all of our scripts described below
+- Scripts/.steamlit/config.toml: this folder includes the configuration file for the web based application UI with
   features such as font and color.
 - Sample Data/Sample Data.txt: this folder contains a txt file with sample data that can be added through
   the command line. The formatting is currently for Mac and would need to be modified if adding from Windows.
   Please see instructions on testing the Web Based Application at towards the bottom the README for how to use
   the Sample Data file.
-- Scripts folder: contains two python files described below
 - Scripts/hospital_db.py: This file contains all database and command line UI code. 
 - Scripts/UI.py: This file contains all code for the web based application.
 - README.md: This file contains file descriptions and instructions for running the code.
