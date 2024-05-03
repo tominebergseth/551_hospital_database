@@ -142,4 +142,24 @@ python hospital_db.py add_appointment '{"ReceptionistID": 211113, "PatientID": 1
 python hospital_db.py add_appointment '{"ReceptionistID": 211113, "PatientID": 1007, "PractitionerID": 111118, "DepartmentID": 1, "AppointmentDate": "2024-03-15", "AppointmentTime": "11:00", "Notes": "Follow-up appointment"}'
 python hospital_db.py add_appointment '{"ReceptionistID": 211115, "PatientID": 1008, "PractitionerID": 111119, "DepartmentID": 1, "AppointmentDate": "2024-03-12", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
 
+Dep 2:
+python hospital_db.py add_appointment '{"ReceptionistID": 211123, "PatientID": 2001, "PractitionerID": 111121, "DepartmentID": 2, "AppointmentDate": "2024-03-19", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211124, "PatientID": 2002, "PractitionerID": 111122, "DepartmentID": 2, "AppointmentDate": "2024-04-19", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211124, "PatientID": 2009, "PractitionerID": 111123, "DepartmentID": 2, "AppointmentDate": "2024-03-10", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211124, "PatientID": 2003, "PractitionerID": 111124, "DepartmentID": 2, "AppointmentDate": "2024-03-14", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211126, "PatientID": 2004, "PractitionerID": 111125, "DepartmentID": 2, "AppointmentDate": "2024-03-16", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211127, "PatientID": 2005, "PractitionerID": 111126, "DepartmentID": 2, "AppointmentDate": "2024-03-13", "AppointmentTime": "11:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211125, "PatientID": 2006, "PractitionerID": 111127, "DepartmentID": 2, "AppointmentDate": "2024-03-15", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211128, "PatientID": 2007, "PractitionerID": 111128, "DepartmentID": 2, "AppointmentDate": "2024-03-15", "AppointmentTime": "11:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211124, "PatientID": 2008, "PractitionerID": 111129, "DepartmentID": 2, "AppointmentDate": "2024-03-12", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
 
+Dep 3:
+python hospital_db.py add_appointment '{"ReceptionistID": 211133, "PatientID": 3009, "PractitionerID": 111131, "DepartmentID": 3, "AppointmentDate": "2024-03-19", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211134, "PatientID": 3001, "PractitionerID": 111132, "DepartmentID": 3, "AppointmentDate": "2024-04-19", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211133, "PatientID": 3002, "PractitionerID": 111133, "DepartmentID": 3, "AppointmentDate": "2024-03-10", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211133, "PatientID": 3003, "PractitionerID": 111134, "DepartmentID": 3, "AppointmentDate": "2024-03-14", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211136, "PatientID": 3004, "PractitionerID": 111135, "DepartmentID": 3, "AppointmentDate": "2024-03-16", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211137, "PatientID": 3005, "PractitionerID": 111136, "DepartmentID": 3, "AppointmentDate": "2024-03-13", "AppointmentTime": "11:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211134, "PatientID": 3006, "PractitionerID": 111137, "DepartmentID": 3, "AppointmentDate": "2024-03-15", "AppointmentTime": "10:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211135, "PatientID": 3007, "PractitionerID": 111138, "DepartmentID": 3, "AppointmentDate": "2024-03-15", "AppointmentTime": "11:00", "Notes": "Follow-up appointment"}'
+python hospital_db.py add_appointment '{"ReceptionistID": 211135, "PatientID": 3008, "PractitionerID": 111139, "DepartmentID": 3, "AppointmentDate": "2024-03-12", "AppointmentTime": "12:00", "Notes": "Follow-up appointment"}'
