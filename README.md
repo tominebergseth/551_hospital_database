@@ -43,6 +43,7 @@ and Omar Alkhadra made the web-based application.
 - In the command line, navigate to the folder where you have downloaded this directory, then the Scripts folder:
   cd path_to_folder/551_Hospital_Database/Scripts
 - Note: The following examples use backslashes in the JSON objects as formatted for Windows. Reformat as needed for Mac.
+  - For some reason, the backslashes don't show on GitHub prior to doing git pull: perform git pull or reformat as needed.
 - Note: There is a supplementary SampleData.txt file that contains entry commands for departments, practitioners, receptionists, patients, and appointments. 
   As mentioned under the file structure section, the JSONs are currently formatted for MAC and would need to be
   reformatted if added from Windows. This file is supplemental and contains many data points for thorough testing, it simply contains multiple samples of the functions detailed below.
@@ -110,6 +111,7 @@ and Omar Alkhadra made the web-based application.
 ## Instructions on Accessing Web Based Application UI:
 - UI Access is contingent on building the databases using the above command line methods.
     - For testing of UI, please ensure databases are setup, and sample data is entered through the command line. * NOTE: You can input your own data or simply use the examples in SampleData.txt 
+      - The JSONs in the sample data need to be formatted for Windows if not using Mac. 
 - Update user UI access user credentials under "# User credentials", at the top of the UI.py file.
 - Ensure that streamlit is installed in your python terminal
 - Navigate to the folder containing both python scripts
