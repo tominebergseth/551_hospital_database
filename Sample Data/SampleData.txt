@@ -96,10 +96,9 @@ python hospital_db.py add_patient '{"PatientID": 1004, "LastName": "Brown", "Fir
 python hospital_db.py add_patient '{"PatientID": 1005, "LastName": "Davis", "FirstName": "Ethan", "DOB": "1978-02-20", "Gender": "Male", "Insurance": "Humana", "PastProcedures": "Coronary artery bypass", "Notes": "Next appointment in 3 months", "DepartmentID": 1}'
 python hospital_db.py add_patient '{"PatientID": 1006, "LastName": "Miller", "FirstName": "Liam", "DOB": "1986-03-14", "Gender": "Male", "Insurance": "Aetna", "PastProcedures": "Angioplasty", "Notes": "All well", "DepartmentID": 1}'
 python hospital_db.py add_patient '{"PatientID": 1007, "LastName": "Wilson", "FirstName": "Charlotte", "DOB": "1972-07-09", "Gender": "Female", "Insurance": "Blue Cross", "PastProcedures": "Stent placement", "Notes": "Needs medication adjustment", "DepartmentID": 1}'
-cedures": "Angioplasty", "Notes": "No complications", "DepartmentID": 1}'
-python hospital_db.py add_patient '{"PatientID": 1042, "LastName": "Roberts", "FirstName": "Zoe", "DOB": "1973-05-25", "Gender": "Female", "Insurance": "Aetna", "PastProcedures": "Stent placement", "Notes": "Medication adjusted", "DepartmentID": 1}'
-python hospital_db.py add_patient '{"PatientID": 1043, "LastName": "Turner", "FirstName": "William", "DOB": "1987-09-18", "Gender": "Male", "Insurance": "Blue Cross", "PastProcedures": "Heart valve surgery", "Notes": "Successful surgery", "DepartmentID": 1}'
-python hospital_db.py add_patient '{"PatientID": 1044, "LastName": "Phillips", "FirstName": "Harper", "DOB": "1989-12-08", "Gender": "Female", "Insurance": "UnitedHealth", "PastProcedures": "Pacemaker implant", "Notes": "Regular cardiology visits", "DepartmentID": 1}'
+python hospital_db.py add_patient '{"PatientID": 1008, "LastName": "Roberts", "FirstName": "Zoe", "DOB": "1973-05-25", "Gender": "Female", "Insurance": "Aetna", "PastProcedures": "Stent placement", "Notes": "Medication adjusted", "DepartmentID": 1}'
+python hospital_db.py add_patient '{"PatientID": 1009, "LastName": "Turner", "FirstName": "William", "DOB": "1987-09-18", "Gender": "Male", "Insurance": "Blue Cross", "PastProcedures": "Heart valve surgery", "Notes": "Successful surgery", "DepartmentID": 1}'
+python hospital_db.py add_patient '{"PatientID": 1010, "LastName": "Phillips", "FirstName": "Harper", "DOB": "1989-12-08", "Gender": "Female", "Insurance": "UnitedHealth", "PastProcedures": "Pacemaker implant", "Notes": "Regular cardiology visits", "DepartmentID": 1}'
 
 
 Dept 2:
