@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import bcrypt
 
-from Scripts.hospital_db import Department, Appointment, Reception, Practitioner, Patient, PatientOf, hash_department, engine_urls  # Import your Appointment class and Base from your module
+from hospital_db import Department, Appointment, Reception, Practitioner, Patient, PatientOf, Base, hash_department, engine_urls  # Import your Appointment class and Base from your module
 
 # User credentials
 users = {
@@ -26,6 +26,8 @@ class SessionState:
 # Create a session state object
 session_state = SessionState(logged_in=False)
 
+
+# Define Login Page
 def login():
     if 'logged_in' not in st.session_state:
         st.session_state.logged_in = False
@@ -46,15 +48,19 @@ def login():
             st.error("Invalid credentials")
     return False
 
+
+# Define Home Page
 def home_page():
     st.title("Appointment Management System")
     
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Appointments", "Patients", "Patient Of", "Practitioners", "Receptionists", "Departments"])
     
+    # Appointments Tab
     with tab1:
         st.title('Appointments')
         subtab1, subtab2, subtab3, subtab4 = st.tabs(["New Appointments", "Appointment Information", "Modify Appointments", "Delete Appointments"])
 
+        # Adding Appointments
         with subtab1:
             filter_options = {
                 "DepartmentID": st.number_input("Department ID",  value= None, step=1, key="Add Department ID, appointments"),
@@ -74,7 +80,6 @@ def home_page():
                 Session1 = sessionmaker(bind=engine1)
                 session1 = Session1()  # session instance
 
-                #Add Appointment
                 filtering_dict = {key: value for key, value in filter_options.items() if value}
                 new_appointment = Appointment.add_appointment(session1, filtering_dict)
 
@@ -84,6 +89,7 @@ def home_page():
                 else:
                     st.error(f'Appointment not added, please ensure all information is correct.')
 
+        # Retrieve Appointment Information
         with subtab2:
             filter_options = {
                 "AppointmentID": st.number_input("Appointment ID", value= None, step=1, key="Get Appointment ID, appointments"),
@@ -124,7 +130,7 @@ def home_page():
                 else:
                     st.write("No appointments found matching the filtering criteria.")
         
-
+        # Modify Appointment Information
         with subtab3:
             st.subheader("Please input the information of the appointment(s) you would like modify")
             filter_options_tofind = {
@@ -170,7 +176,7 @@ def home_page():
                 else:
                     st.error(f'Appointment was not modified, please ensure all information is correct.')
 
-        
+        # Delete Appointment
         with subtab4:
             filter_options = {
                 "AppointmentID": st.number_input("Appointment ID", value= None, step=1, key="Delete Appointment, appointments")
@@ -191,10 +197,12 @@ def home_page():
                 st.success(f'Appointment successfully deleted')
 
 
+    # Patients Tab
     with tab2:
         st.title('Patients')
         subtab1, subtab2, subtab3 = st.tabs(["New Patients", "Patient Information", "Modify Patient Information"])
 
+        # Add Patient
         with subtab1:
             filter_options = {
                 "PatientID": st.number_input('Patient ID', min_value=1, step=1, key="Add Patient ID, patients"),
@@ -203,7 +211,7 @@ def home_page():
                 "FirstName": st.text_input('First Name', key="Add First Name, patients"),
                 "DOB": st.date_input('Date of Birth', key='Add DOB, patients', ),
                 "Gender": st.text_input('Gender', key='Add Gender, patients'),
-                "Insurance": st.text_input('Insurance Status', key="Add Insurance, patients"),
+                "Insurance": st.text_input('Insurance', key="Add Insurance, patients"),
                 "PastProcedures": st.text_input('Past Procedures', key="Add Past Procedures, patients"),
                 "Notes": st.text_area('Notes', key="Add Notes, patients")
             }
@@ -227,6 +235,7 @@ def home_page():
                     st.error(f'Patient not added, please ensure all necessary information is filled and correct.')
                 
         
+        # Retrieve Patient Information
         with subtab2:
             filter_options = {
                 "PatientID": st.number_input('Patient ID', value=None, step=1, key="Get Patient ID, patients"),
@@ -235,7 +244,8 @@ def home_page():
                 "FirstName": st.text_input('First Name', value=None, key="Get First Name, patients"),
                 "DOB": st.date_input('Date of Birth', value=None, key='Get DOB, patients', ),
                 "Gender": st.text_input('Gender', value=None, key='Get Gender, patients'),
-                "Insurance": st.text_input('Insurance Status', value=None, key="Get Insurance, patients"),
+                "SchedulingState": st.text_input('Scheduling state', value=None, key='Get SS, patients'),
+                "Insurance": st.text_input('Insurance', value=None, key="Get Insurance, patients"),
                 "PastProcedures": st.text_input('Past Procedures', value=None, key="Get Past Procedures, patients"),
                 "Notes": st.text_area('Notes', value=None, key="Get Notes, patients")
             }
@@ -270,6 +280,7 @@ def home_page():
                 else:
                     st.write("No patient(s) found matching the filtering criteria.")
 
+        # Modify Patient Information
         with subtab3:
             st.subheader("Please input the information of the patient(s) you would like modify")
             filter_options_tofind = {
@@ -279,7 +290,8 @@ def home_page():
                 "FirstName": st.text_input('First Name', value=None, key="ModifyGet First Name, patients"),
                 "DOB": st.date_input('Date of Birth', value=None, key='ModifyGet DOB, patients', ),
                 "Gender": st.text_input('Gender', value=None, key='ModifyGet Gender, patients'),
-                "Insurance": st.text_input('Insurance Status', value=None, key="ModifyGet Insurance, patients"),
+                "SchedulingState": st.text_input('Scheduling state', value=None, key='Modify SS, patients'),
+                "Insurance": st.text_input('Insurance', value=None, key="ModifyGet Insurance, patients"),
                 "PastProcedures": st.text_input('Past Procedures', value=None, key="ModifyGet Past Procedures, patients"),
                 "Notes": st.text_area('Notes', value=None, key="ModifyGet Notes, patients")
             }
@@ -317,9 +329,11 @@ def home_page():
                 else:
                     st.error(f'Patient(s) not modified, please ensure all necessary information is filled and correct.')
                 
+    # Patient_Of Tab
     with tab3:
         subtab1, subtab2 = st.tabs(["Patients by Practitioner", "Practitioners by Patients"])
 
+        # Search by Practitioner
         with subtab1:
             st.title('Patient Of')
             st.subheader("Patient Information per Practitioner")
@@ -355,8 +369,7 @@ def home_page():
                 else:
                     st.write("No Patients found matching the filtering criteria.")
 
-
-
+        # Search by Patient
         with subtab2:
             st.title('Practitioner For')
             st.subheader("Practitioner Information by Patient")
@@ -389,7 +402,7 @@ def home_page():
                 else:
                     st.write("No Practitioners found matching the filtering criteria.")
 
-
+    # Practitioners Tab
     with tab4:
         st.title('Practitioners')
         st.subheader("Practitioner Information")
@@ -433,7 +446,7 @@ def home_page():
                 st.write("No Practitioners found matching the filtering criteria.")
 
     
-
+    # Receptionists Tab
     with tab5:
         st.title('Receptionists')
         st.subheader("Receptionist Information")
@@ -469,7 +482,7 @@ def home_page():
             else:
                 st.write("No Receptionists found matching the filtering criteria.")
 
-
+    # Departments Tab
     with tab6:
         st.title('Departments')
         st.subheader("Department Information")
